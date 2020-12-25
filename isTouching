@@ -1,0 +1,22 @@
+var MRect, FRect;
+function setup() {
+  createCanvas(1200,4000);
+  MRect = createSprite(400, 200, 50, 80);
+  FRect = createSprite(600, 400, 80, 30);
+}
+
+function draw() {
+  background(0,0,0);  
+  drawSprites();
+  MRect.y = World.mouseY;
+  MRect.x = World.mouseX;
+
+  if(MRect.x - FRect.x < MRect.width/2 + FRect.width/2 && FRect.x - MRect.x<MRect.width/2 + FRect.width/2 &&
+    MRect.y - FRect.y<MRect.height/2 && FRect.y - MRect.y<MRect.height/2 + FRect.height/2){
+    MRect.shapeColor = "red";
+    FRect.shapeColor = "red";
+  }else{
+    MRect.shapeColor = "green";
+    FRect.shapeColor = "green";
+  }
+}
